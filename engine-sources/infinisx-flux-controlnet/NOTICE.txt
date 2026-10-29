@@ -1,5 +1,5 @@
 InfinisX Flux ControlNet — an extension for the Forge Neo render engine.
-Copyright (C) 2026 the InfinisX authors.
+Copyright (C) 2026 Hawktagon LLC.
 
 This extension is free software: you can redistribute it and/or modify it
 under the terms of the GNU Affero General Public License as published by the

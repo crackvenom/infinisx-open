@@ -56,6 +56,10 @@
       <button type="button" id="pick">Choose a picture…</button>
       <input type="file" id="file" accept="image/png,image/jpeg,image/webp" hidden />
     </div>
+    <form id="urlform" style="display:flex;gap:8px;margin-top:12px">
+      <input id="url" type="url" placeholder="…or paste a picture's web address (https://…)" aria-label="Picture web address" style="flex:1;min-width:0;font:inherit;padding:8px 10px;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--text)" />
+      <button type="submit" style="font:inherit;padding:8px 14px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--text);cursor:pointer">Check</button>
+    </form>
     <p id="status" aria-live="polite">Getting the checkers ready…</p>
 
     <section id="result" aria-live="polite">
@@ -70,6 +74,8 @@
 
     <footer>
       <p>What is checked: <strong>Content Credentials</strong> (the C2PA standard — a signed record inside the file), an invisible <strong>TrustMark</strong> watermark in the pixels (Adobe's open-source watermark, which survives JPEG saving, resizing and cropping), and China's <strong>AIGC</strong> label (GB 45438). No marks found does not prove a picture was made without AI: marks can be removed or never added.</p>
+      <p><strong>From code, without this website:</strong> the same checker as a command-line tool and JavaScript module — <a href="https://github.com/crackvenom/infinisx-open/tree/main/api">github.com/crackvenom/infinisx-open/api</a> (<code>node check-ai-marks.mjs picture.png</code> → JSON). A web address works when its site allows browsers to fetch it; otherwise download the picture and drop it here.</p>
+      <p><strong>Feedback</strong> on how well the checker works (a mark it missed, a false result): <a href="https://github.com/crackvenom/infinisx-open/issues/new?title=Checker%20feedback">open an issue</a>. Please don't attach private pictures.</p>
       <p>Free to use, no account, nothing stored. The watermark reader downloads its model from Adobe (about 50 MB, once). Open source: Content Credentials by the <a href="https://contentauthenticity.org/">Content Authenticity Initiative</a> (c2pa-web, MIT); <a href="https://github.com/adobe/trustmark">TrustMark</a> (Adobe, MIT); ONNX Runtime (Microsoft, MIT). Licences in the <code>vendor</code> folder. Also try <a href="https://contentcredentials.org/verify">contentcredentials.org/verify</a>.</p>
     </footer>
   </main>

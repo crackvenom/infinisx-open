@@ -169,6 +169,22 @@ async function check(file) {
   document.body.dataset.checked = JSON.stringify({ credentials: cred.none ? "none" : cred.manifest ? (cred.failures.some((f) => f !== "signingCredential.untrusted") ? "tampered" : "intact") : "error", watermark: wm.bits ?? (wm.none ? "none" : "error"), watermarkMatches: !!(disclosureId && wm.bits === idBits(disclosureId)), aigc: !!aigc });
 }
 
+$("urlform").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const url = $("url").value.trim();
+  if (!url) return;
+  $("status").textContent = `Fetching ${url}…`;
+  try {
+    const res = await fetch(url, { mode: "cors" });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const blob = await res.blob();
+    const name = decodeURIComponent(new URL(url).pathname.split("/").pop() || "picture");
+    await check(new File([blob], name, { type: blob.type || "image/png" }));
+  } catch (err) {
+    $("status").textContent = `Could not fetch that address from this page (${err?.message ?? err}). Many sites block it — download the picture and drop it here instead.`;
+  }
+});
+
 const drop = $("drop");
 const input = $("file");
 $("pick").addEventListener("click", (e) => { e.stopPropagation(); input.click(); });

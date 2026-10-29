@@ -1,0 +1,11 @@
+{
+  "name": "infinisx-ai-mark-checker",
+  "version": "1.0.0",
+  "description": "Check a picture for AI marks (C2PA Content Credentials, TrustMark watermark, China AIGC label) from code or the command line.",
+  "type": "module",
+  "main": "check-ai-marks.mjs",
+  "bin": { "check-ai-marks": "check-ai-marks.mjs" },
+  "license": "MIT",
+  "engines": { "node": ">=22" },
+  "dependencies": { "@contentauth/c2pa-node": "0.9.11" }
+}
