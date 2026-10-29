@@ -1,0 +1,932 @@
+var ie = Object.defineProperty;
+var $ = (n) => {
+  throw TypeError(n);
+};
+var se = (n, e, t) => e in n ? ie(n, e, { enumerable: !0, configurable: !0, writable: !0, value: t }) : n[e] = t;
+var O = (n, e, t) => se(n, typeof e != "symbol" ? e + "" : e, t), C = (n, e, t) => e.has(n) || $("Cannot " + t);
+var i = (n, e, t) => (C(n, e, "read from private field"), t ? t.call(n) : e.get(n)), v = (n, e, t) => e.has(n) ? $("Cannot add the same private member more than once") : e instanceof WeakSet ? e.add(n) : e.set(n, t), S = (n, e, t, r) => (C(n, e, "write to private field"), r ? r.call(n, t) : e.set(n, t), t);
+import { channel as X, transfer as P } from "highgain";
+const { createTx: oe, rx: ze } = X(), { createTx: De, rx: _e } = X("worker"), Z = '(function(){"use strict";class y{static __wrap(e){const t=Object.create(y.prototype);return t.__wbg_ptr=e,z.register(t,t.__wbg_ptr,t),t}__destroy_into_raw(){const e=this.__wbg_ptr;return this.__wbg_ptr=0,z.unregister(this),e}free(){const e=this.__destroy_into_raw();o.__wbg_wasmbuilder_free(e,0)}addAction(e){const t=o.wasmbuilder_addAction(this.__wbg_ptr,e);if(t[1])throw b(t[0])}addAssertion(e,t){const n=d(e,o.__wbindgen_malloc,o.__wbindgen_realloc),_=a,c=o.wasmbuilder_addAssertion(this.__wbg_ptr,n,_,t);if(c[1])throw b(c[0])}addIngredientFromBlob(e,t,n){const _=d(e,o.__wbindgen_malloc,o.__wbindgen_realloc),c=a,s=d(t,o.__wbindgen_malloc,o.__wbindgen_realloc),i=a;return o.wasmbuilder_addIngredientFromBlob(this.__wbg_ptr,_,c,s,i,n)}addIngredient(e){const t=d(e,o.__wbindgen_malloc,o.__wbindgen_realloc),n=a,_=o.wasmbuilder_addIngredient(this.__wbg_ptr,t,n);if(_[1])throw b(_[0])}addRedaction(e,t){const n=d(e,o.__wbindgen_malloc,o.__wbindgen_realloc),_=a,c=o.wasmbuilder_addRedaction(this.__wbg_ptr,n,_,t);if(c[1])throw b(c[0])}addResourceFromBlob(e,t){const n=d(e,o.__wbindgen_malloc,o.__wbindgen_realloc),_=a,c=o.wasmbuilder_addResourceFromBlob(this.__wbg_ptr,n,_,t);if(c[1])throw b(c[0])}filterActionsAndIngredientsAt(e,t){const n=E(e,o.__wbindgen_malloc),_=a,c=E(t,o.__wbindgen_malloc),s=a,i=o.wasmbuilder_filterActionsAndIngredientsAt(this.__wbg_ptr,n,_,c,s);if(i[1])throw b(i[0])}filterActionsAt(e){const t=E(e,o.__wbindgen_malloc),n=a,_=o.wasmbuilder_filterActionsAt(this.__wbg_ptr,t,n);if(_[1])throw b(_[0])}filterIngredientsAt(e){const t=E(e,o.__wbindgen_malloc),n=a,_=o.wasmbuilder_filterIngredientsAt(this.__wbg_ptr,t,n);if(_[1])throw b(_[0])}static fromArchive(e,t){var n=w(t)?0:d(t,o.__wbindgen_malloc,o.__wbindgen_realloc),_=a;const c=o.wasmbuilder_fromArchive(e,n,_);if(c[2])throw b(c[1]);return y.__wrap(c[0])}static fromJson(e,t){const n=d(e,o.__wbindgen_malloc,o.__wbindgen_realloc),_=a;var c=w(t)?0:d(t,o.__wbindgen_malloc,o.__wbindgen_realloc),s=a;const i=o.wasmbuilder_fromJson(n,_,c,s);if(i[2])throw b(i[1]);return y.__wrap(i[0])}getDefinition(){const e=o.wasmbuilder_getDefinition(this.__wbg_ptr);if(e[2])throw b(e[1]);return b(e[0])}static new(e){var t=w(e)?0:d(e,o.__wbindgen_malloc,o.__wbindgen_realloc),n=a;const _=o.wasmbuilder_new(t,n);if(_[2])throw b(_[1]);return y.__wrap(_[0])}setIntent(e){const t=o.wasmbuilder_setIntent(this.__wbg_ptr,e);if(t[1])throw b(t[0])}setNoEmbed(e){o.wasmbuilder_setNoEmbed(this.__wbg_ptr,e)}setRemoteUrl(e){const t=d(e,o.__wbindgen_malloc,o.__wbindgen_realloc),n=a;o.wasmbuilder_setRemoteUrl(this.__wbg_ptr,t,n)}setThumbnailFromBlob(e,t){const n=d(e,o.__wbindgen_malloc,o.__wbindgen_realloc),_=a,c=o.wasmbuilder_setThumbnailFromBlob(this.__wbg_ptr,n,_,t);if(c[1])throw b(c[0])}signAndGetManifestBytes(e,t,n,_){const c=d(n,o.__wbindgen_malloc,o.__wbindgen_realloc),s=a;return o.wasmbuilder_signAndGetManifestBytes(this.__wbg_ptr,e,t,c,s,_)}sign(e,t,n,_){const c=d(n,o.__wbindgen_malloc,o.__wbindgen_realloc),s=a;return o.wasmbuilder_sign(this.__wbg_ptr,e,t,c,s,_)}toArchive(){const e=o.wasmbuilder_toArchive(this.__wbg_ptr);if(e[2])throw b(e[1]);return b(e[0])}updateActionsAt(e){const t=o.wasmbuilder_updateActionsAt(this.__wbg_ptr,e);if(t[1])throw b(t[0])}updateAssertionsAt(e,t){const n=d(e,o.__wbindgen_malloc,o.__wbindgen_realloc),_=a,c=o.wasmbuilder_updateAssertionsAt(this.__wbg_ptr,n,_,t);if(c[1])throw b(c[0])}}Symbol.dispose&&(y.prototype[Symbol.dispose]=y.prototype.free);class I{static __wrap(e){const t=Object.create(I.prototype);return t.__wbg_ptr=e,N.register(t,t.__wbg_ptr,t),t}__destroy_into_raw(){const e=this.__wbg_ptr;return this.__wbg_ptr=0,N.unregister(this),e}free(){const e=this.__destroy_into_raw();o.__wbg_wasmreader_free(e,0)}activeLabel(){const e=o.wasmreader_activeLabel(this.__wbg_ptr);let t;return e[0]!==0&&(t=p(e[0],e[1]),o.__wbindgen_free(e[0],e[1]*1,1)),t}activeManifest(){const e=o.wasmreader_activeManifest(this.__wbg_ptr);if(e[2])throw b(e[1]);return b(e[0])}crJson(){let e,t;try{const n=o.wasmreader_crJson(this.__wbg_ptr);return e=n[0],t=n[1],p(n[0],n[1])}finally{o.__wbindgen_free(e,t,1)}}static fromBlobFragment(e,t,n,_){const c=d(e,o.__wbindgen_malloc,o.__wbindgen_realloc),s=a;var i=w(_)?0:d(_,o.__wbindgen_malloc,o.__wbindgen_realloc),u=a;return o.wasmreader_fromBlobFragment(c,s,t,n,i,u)}static fromBlob(e,t,n){const _=d(e,o.__wbindgen_malloc,o.__wbindgen_realloc),c=a;var s=w(n)?0:d(n,o.__wbindgen_malloc,o.__wbindgen_realloc),i=a;return o.wasmreader_fromBlob(_,c,t,s,i)}static fromBytes(e,t,n){const _=d(e,o.__wbindgen_malloc,o.__wbindgen_realloc),c=a,s=Z(t,o.__wbindgen_malloc),i=a;var u=w(n)?0:d(n,o.__wbindgen_malloc,o.__wbindgen_realloc),g=a;return o.wasmreader_fromBytes(_,c,s,i,u,g)}json(){let e,t;try{const n=o.wasmreader_json(this.__wbg_ptr);return e=n[0],t=n[1],p(n[0],n[1])}finally{o.__wbindgen_free(e,t,1)}}manifestStore(){const e=o.wasmreader_manifestStore(this.__wbg_ptr);if(e[2])throw b(e[1]);return b(e[0])}resourceToBytes(e){const t=d(e,o.__wbindgen_malloc,o.__wbindgen_realloc),n=a,_=o.wasmreader_resourceToBytes(this.__wbg_ptr,t,n);if(_[2])throw b(_[1]);return b(_[0])}}Symbol.dispose&&(I.prototype[Symbol.dispose]=I.prototype.free);function P(){return{__proto__:null,"./c2pa_bg.js":{__proto__:null,__wbg_Error_30c8987f7c2ed4e2:function(e,t){return Error(p(e,t))},__wbg_Number_14af1003b8dd5ead:function(e){return Number(e)},__wbg_String_8564e559799eccda:function(e,t){const n=String(t),_=d(n,o.__wbindgen_malloc,o.__wbindgen_realloc),c=a;m().setInt32(e+4,c,!0),m().setInt32(e+0,_,!0)},__wbg___wbindgen_bigint_get_as_i64_a2383202b9353e4c:function(e,t){const n=t,_=typeof n=="bigint"?n:void 0;m().setBigInt64(e+8,w(_)?BigInt(0):_,!0),m().setInt32(e+0,!w(_),!0)},__wbg___wbindgen_boolean_get_5b446f51afd21013:function(e){const t=e,n=typeof t=="boolean"?t:void 0;return w(n)?16777215:n?1:0},__wbg___wbindgen_debug_string_4687d8d8c2017d52:function(e,t){const n=U(t),_=d(n,o.__wbindgen_malloc,o.__wbindgen_realloc),c=a;m().setInt32(e+4,c,!0),m().setInt32(e+0,_,!0)},__wbg___wbindgen_in_92f62ee1427d9e49:function(e,t){return e in t},__wbg___wbindgen_is_bigint_b123553bed3bb382:function(e){return typeof e=="bigint"},__wbg___wbindgen_is_function_1f9d30630b8b1d3d:function(e){return typeof e=="function"},__wbg___wbindgen_is_null_e343b7d08827ba72:function(e){return e===null},__wbg___wbindgen_is_object_3c45d4f2dde4e749:function(e){const t=e;return typeof t=="object"&&t!==null},__wbg___wbindgen_is_string_90b56bc79aad6f6c:function(e){return typeof e=="string"},__wbg___wbindgen_is_undefined_8865fb403f8fe9d8:function(e){return e===void 0},__wbg___wbindgen_jsval_eq_02babf21faa37971:function(e,t){return e===t},__wbg___wbindgen_jsval_loose_eq_677f21e468d6b461:function(e,t){return e==t},__wbg___wbindgen_number_get_2e0e7dee9f701a71:function(e,t){const n=t,_=typeof n=="number"?n:void 0;m().setFloat64(e+8,w(_)?0:_,!0),m().setInt32(e+0,!w(_),!0)},__wbg___wbindgen_string_get_0380ccaa2f57f0d9:function(e,t){const n=t,_=typeof n=="string"?n:void 0;var c=w(_)?0:d(_,o.__wbindgen_malloc,o.__wbindgen_realloc),s=a;m().setInt32(e+4,s,!0),m().setInt32(e+0,c,!0)},__wbg___wbindgen_throw_41e9ee4f547fc59a:function(e,t){throw new Error(p(e,t))},__wbg__wbg_cb_unref_dcc1a90847f04c41:function(e){e._wbg_cb_unref()},__wbg_abort_334e7f918b7c5047:function(e,t){e.abort(t)},__wbg_abort_f78b99d80248bacb:function(e){e.abort()},__wbg_append_1938ed58fb5613b8:function(){return l(function(e,t,n,_,c){e.append(p(t,n),p(_,c))},arguments)},__wbg_arrayBuffer_f07be74819944ea2:function(){return l(function(e){return e.arrayBuffer()},arguments)},__wbg_byteLength_9f985b8373f1f3fe:function(e){return e.byteLength},__wbg_call_187d372bd5fdd4aa:function(){return l(function(e,t,n){return e.call(t,n)},arguments)},__wbg_call_6137034ef55c9d0f:function(){return l(function(e,t){return e.call(t)},arguments)},__wbg_clearTimeout_6b8d9a38b9263d65:function(e){return clearTimeout(e)},__wbg_crypto_38df2bab126b63dc:function(e){return e.crypto},__wbg_done_b41a1d26cdb37fb6:function(e){return e.done},__wbg_entries_fb6397112b1de25f:function(e){return Object.entries(e)},__wbg_error_757e9472f8410341:function(e,t){let n,_;try{n=e,_=t,console.error(p(e,t))}finally{o.__wbindgen_free(n,_,1)}},__wbg_fetch_9dad4fe911207b37:function(e){return fetch(e)},__wbg_fetch_efc64baf325b084d:function(e,t){return e.fetch(t)},__wbg_from_296ca31f8d0f1c52:function(e){return Array.from(e)},__wbg_getRandomValues_436a51d0629d84e1:function(){return l(function(e,t){globalThis.crypto.getRandomValues(A(e,t))},arguments)},__wbg_getRandomValues_a608c4436c19407a:function(){return l(function(e,t){globalThis.crypto.getRandomValues(A(e,t))},arguments)},__wbg_getRandomValues_a678b7300e8ed57f:function(){return l(function(e,t){globalThis.crypto.getRandomValues(A(e,t))},arguments)},__wbg_getRandomValues_c44a50d8cfdaebeb:function(){return l(function(e,t){e.getRandomValues(t)},arguments)},__wbg_getTime_f5a55efff2585d5d:function(e){return e.getTime()},__wbg_get_31af05bd4842a84f:function(){return l(function(e,t){return Reflect.get(e,t)},arguments)},__wbg_get_658f6698067d9515:function(){return l(function(e,t){return Reflect.get(e,t)},arguments)},__wbg_get_6c896e0571ddae51:function(e,t){return e[t>>>0]},__wbg_get_unchecked_288889d017702237:function(e,t){return e[t>>>0]},__wbg_get_with_ref_key_6412cf3094599694:function(e,t){return e[t]},__wbg_has_5d6706e5209576c1:function(){return l(function(e,t){return Reflect.has(e,t)},arguments)},__wbg_headers_eba93595f8944c2f:function(e){return e.headers},__wbg_instanceof_ArrayBuffer_a99f175873e5d9b8:function(e){let t;try{t=e instanceof ArrayBuffer}catch{t=!1}return t},__wbg_instanceof_Map_b2611749102d7ba3:function(e){let t;try{t=e instanceof Map}catch{t=!1}return t},__wbg_instanceof_Promise_e1dc6893aa1ece28:function(e){let t;try{t=e instanceof Promise}catch{t=!1}return t},__wbg_instanceof_Response_b8758567269c30b2:function(e){let t;try{t=e instanceof Response}catch{t=!1}return t},__wbg_instanceof_Uint8Array_828cef2aaacafc31:function(e){let t;try{t=e instanceof Uint8Array}catch{t=!1}return t},__wbg_isArray_e15a2ff68ffdbef2:function(e){return Array.isArray(e)},__wbg_isSafeInteger_717808ad6a54bd9e:function(e){return Number.isSafeInteger(e)},__wbg_iterator_e3c31c892080e444:function(){return Symbol.iterator},__wbg_length_7f3c00c40364105e:function(e){return e.length},__wbg_length_d4bdea10311bd9cf:function(e){return e.length},__wbg_msCrypto_bd5a034af96bcba6:function(e){return e.msCrypto},__wbg_new_0_72d020f0c63443d4:function(){return new Date},__wbg_new_1dbf7428bba60a42:function(e){return new Uint8Array(e)},__wbg_new_227d7c05414eb861:function(){return new Error},__wbg_new_28744009d011f847:function(){return new Map},__wbg_new_2e41357094e99294:function(){return l(function(){return new AbortController},arguments)},__wbg_new_617a8cdb8bb1130e:function(){return new Object},__wbg_new_83ca405eae412a62:function(){return l(function(){return new Headers},arguments)},__wbg_new_9ffe4dece67ce9fc:function(){return l(function(){return new FileReaderSync},arguments)},__wbg_new_ee2291f50781bf1d:function(){return new Array},__wbg_new_from_slice_9a868026ffa4208a:function(e,t){return new Uint8Array(A(e,t))},__wbg_new_typed_b01cb72a8af741a3:function(e,t){try{var n={a:e,b:t},_=(s,i)=>{const u=n.a;n.a=0;try{return H(u,n.b,s,i)}finally{n.a=u}};return new Promise(_)}finally{n.a=0}},__wbg_new_with_length_3da0ad195f6f63ba:function(e){return new Uint8Array(e>>>0)},__wbg_new_with_str_and_init_4618dee4e950224f:function(){return l(function(e,t,n){return new Request(p(e,t),n)},arguments)},__wbg_next_33784799010f1bbe:function(e){return e.next},__wbg_next_f4aac29c42af995c:function(){return l(function(e){return e.next()},arguments)},__wbg_node_84ea875411254db1:function(e){return e.node},__wbg_now_aa4ccb83129e9e55:function(){return Date.now()},__wbg_process_44c7a14e11e9f69e:function(e){return e.process},__wbg_prototypesetcall_bc27214492979395:function(e,t,n){Uint8Array.prototype.set.call(A(e,t),n)},__wbg_queueMicrotask_9833f9a49df95a49:function(e){return e.queueMicrotask},__wbg_queueMicrotask_a72f977e97f23c5f:function(e){queueMicrotask(e)},__wbg_randomFillSync_6c25eac9869eb53c:function(){return l(function(e,t){e.randomFillSync(t)},arguments)},__wbg_readAsArrayBuffer_14bc98cc9cdf7c0b:function(){return l(function(e,t){return e.readAsArrayBuffer(t)},arguments)},__wbg_require_b4edbdcf3e2a1ef0:function(){return l(function(){return module.require},arguments)},__wbg_resolve_0076e10020304ede:function(e){return Promise.resolve(e)},__wbg_setTimeout_f757f00851f76c42:function(e,t){return setTimeout(e,t)},__wbg_set_575d3ddb70fe831d:function(e,t,n){e.set(A(t,n))},__wbg_set_6ae97e73113c4f0b:function(e,t,n){return e.set(t,n)},__wbg_set_6be42768c690e380:function(e,t,n){e[t]=n},__wbg_set_bea140a88be9b277:function(e,t,n){e[t>>>0]=n},__wbg_set_body_1fb0f1008bfc7df6:function(e,t){e.body=t},__wbg_set_cache_7507c4cc5938ccc7:function(e,t){e.cache=X[t]},__wbg_set_credentials_e0dcce31ca532b7d:function(e,t){e.credentials=Y[t]},__wbg_set_headers_40ad33dcf016613f:function(e,t){e.headers=t},__wbg_set_method_dcb32343247ec427:function(e,t,n){e.method=p(t,n)},__wbg_set_mode_74e772635acb96ec:function(e,t){e.mode=K[t]},__wbg_set_signal_2dbd377604627f26:function(e,t){e.signal=t},__wbg_signal_e5a49a2d9c65b7f6:function(e){return e.signal},__wbg_size_8f1c0b1a1fbb3810:function(e){return e.size},__wbg_slice_afd8274aed4149c0:function(){return l(function(e,t,n){return e.slice(t,n)},arguments)},__wbg_stack_3b0d974bbf31e44f:function(e,t){const n=t.stack,_=d(n,o.__wbindgen_malloc,o.__wbindgen_realloc),c=a;m().setInt32(e+4,c,!0),m().setInt32(e+0,_,!0)},__wbg_static_accessor_GLOBAL_266715b9d96ba635:function(){const e=typeof global>"u"?null:global;return w(e)?0:S(e)},__wbg_static_accessor_GLOBAL_THIS_10fb7dc1ae063179:function(){const e=typeof globalThis>"u"?null:globalThis;return w(e)?0:S(e)},__wbg_static_accessor_SELF_0b583911f537483a:function(){const e=typeof self>"u"?null:self;return w(e)?0:S(e)},__wbg_static_accessor_WINDOW_d7f903d1508cbdc4:function(){const e=typeof window>"u"?null:window;return w(e)?0:S(e)},__wbg_status_ce0a98d3c57125f3:function(e){return e.status},__wbg_stringify_52ff602c1cc4fbb6:function(){return l(function(e){return JSON.stringify(e)},arguments)},__wbg_subarray_002b94d5e13d1411:function(e,t,n){return e.subarray(t>>>0,n>>>0)},__wbg_then_c949d5a25a4e78f8:function(e,t,n){return e.then(t,n)},__wbg_then_e71170d78fcf8954:function(e,t){return e.then(t)},__wbg_url_8e28edeab4cd6bed:function(e,t){const n=t.url,_=d(n,o.__wbindgen_malloc,o.__wbindgen_realloc),c=a;m().setInt32(e+4,c,!0),m().setInt32(e+0,_,!0)},__wbg_valueOf_6abcff09c8156bb6:function(e){return e.valueOf()},__wbg_value_f3c585ee8f5ba40c:function(e){return e.value},__wbg_versions_276b2795b1c6a219:function(e){return e.versions},__wbg_wasmreader_new:function(e){return I.__wrap(e)},__wbindgen_generic_0000000000000001:function(e,t){return L(e,t,$)},__wbindgen_generic_0000000000000002:function(e,t){return L(e,t,G)},__wbindgen_generic_0000000000000003:function(e){return e},__wbindgen_generic_0000000000000004:function(e){return e},__wbindgen_generic_0000000000000005:function(e,t){return A(e,t)},__wbindgen_generic_0000000000000006:function(e,t){return p(e,t)},__wbindgen_generic_0000000000000007:function(e){return BigInt.asUintN(64,e)},__wbindgen_generic_0000000000000008:function(e,t){var n=A(e,t).slice();return o.__wbindgen_free(e,t*1,1),n},__wbindgen_init_externref_table:function(){const e=o.__wbindgen_externrefs,t=e.grow(4);e.set(0,void 0),e.set(t+0,void 0),e.set(t+1,null),e.set(t+2,!0),e.set(t+3,!1)}}}}function G(r,e){o.wasm_bindgen_255200e6d97c625a___convert__closures_____invoke_______true_(r,e)}function $(r,e,t){const n=o.wasm_bindgen_255200e6d97c625a___convert__closures_____invoke___wasm_bindgen_255200e6d97c625a___JsValue__core_37ee0ce0c4cd57d5___result__Result_____wasm_bindgen_255200e6d97c625a___JsError___true_(r,e,t);if(n[1])throw b(n[0])}function H(r,e,t,n){o.wasm_bindgen_255200e6d97c625a___convert__closures_____invoke___js_sys_bd80bcec31efc073___Function_fn_wasm_bindgen_255200e6d97c625a___JsValue_____wasm_bindgen_255200e6d97c625a___sys__Undefined___js_sys_bd80bcec31efc073___Function_fn_wasm_bindgen_255200e6d97c625a___JsValue_____wasm_bindgen_255200e6d97c625a___sys__Undefined_______true_(r,e,t,n)}const X=["default","no-store","reload","no-cache","force-cache","only-if-cached"],Y=["omit","same-origin","include"],K=["same-origin","no-cors","cors","navigate"],z=typeof FinalizationRegistry>"u"?{register:()=>{},unregister:()=>{}}:new FinalizationRegistry(r=>o.__wbg_wasmbuilder_free(r,1)),N=typeof FinalizationRegistry>"u"?{register:()=>{},unregister:()=>{}}:new FinalizationRegistry(r=>o.__wbg_wasmreader_free(r,1));typeof FinalizationRegistry>"u"||new FinalizationRegistry(r=>o.__wbg_wasmsigner_free(r,1));function S(r){const e=o.__externref_table_alloc();return o.__wbindgen_externrefs.set(e,r),e}const J=typeof FinalizationRegistry>"u"?{register:()=>{},unregister:()=>{}}:new FinalizationRegistry(r=>o.__wbindgen_destroy_closure(r.a,r.b));function U(r){const e=typeof r;if(e=="number"||e=="boolean"||r==null)return`${r}`;if(e=="string")return`"${r}"`;if(e=="symbol"){const _=r.description;return _==null?"Symbol":`Symbol(${_})`}if(e=="function"){const _=r.name;return typeof _=="string"&&_.length>0?`Function(${_})`:"Function"}if(Array.isArray(r)){const _=r.length;let c="[";_>0&&(c+=U(r[0]));for(let s=1;s<_;s++)c+=", "+U(r[s]);return c+="]",c}const t=/\\[object ([^\\]]+)\\]/.exec(toString.call(r));let n;if(t&&t.length>1)n=t[1];else return toString.call(r);if(n=="Object")try{return"Object("+JSON.stringify(r)+")"}catch{return"Object"}return r instanceof Error?`${r.name}: ${r.message}\n${r.stack}`:n}function A(r,e){return r=r>>>0,R().subarray(r/1,r/1+e)}let F=null;function m(){return(F===null||F.buffer.detached===!0||F.buffer.detached===void 0&&F.buffer!==o.memory.buffer)&&(F=new DataView(o.memory.buffer)),F}function p(r,e){return te(r>>>0,e)}let B=null;function Q(){return(B===null||B.byteLength===0)&&(B=new Uint32Array(o.memory.buffer)),B}let T=null;function R(){return(T===null||T.byteLength===0)&&(T=new Uint8Array(o.memory.buffer)),T}function l(r,e){try{return r.apply(this,e)}catch(t){const n=S(t);o.__wbindgen_exn_store(n)}}function w(r){return r==null}function L(r,e,t){const n={a:r,b:e,cnt:1},_=(...c)=>{n.cnt++;const s=n.a;n.a=0;try{return t(s,n.b,...c)}finally{n.a=s,_._wbg_cb_unref()}};return _._wbg_cb_unref=()=>{--n.cnt===0&&(o.__wbindgen_destroy_closure(n.a,n.b),n.a=0,J.unregister(n))},J.register(_,n,n),_}function E(r,e){const t=e(r.length*4,4)>>>0;return Q().set(r,t/4),a=r.length,t}function Z(r,e){const t=e(r.length*1,1)>>>0;return R().set(r,t/1),a=r.length,t}function d(r,e,t){if(t===void 0){const i=j.encode(r),u=e(i.length,1)>>>0;return R().subarray(u,u+i.length).set(i),a=i.length,u}let n=r.length,_=e(n,1)>>>0;const c=R();let s=0;for(;s<n;s++){const i=r.charCodeAt(s);if(i>127)break;c[_+s]=i}if(s!==n){s!==0&&(r=r.slice(s)),_=t(_,n,n=s+r.length*3,1)>>>0;const i=R().subarray(_+s,_+n),u=j.encodeInto(r,i);s+=u.written,_=t(_,n,s,1)>>>0}return a=s,_}function b(r){const e=o.__wbindgen_externrefs.get(r);return o.__externref_table_dealloc(r),e}let O=new TextDecoder("utf-8",{ignoreBOM:!0,fatal:!0});O.decode();const ee=2146435072;let x=0;function te(r,e){return x+=e,x>=ee&&(O=new TextDecoder("utf-8",{ignoreBOM:!0,fatal:!0}),O.decode(),x=e),O.decode(R().subarray(r,r+e))}const j=new TextEncoder;"encodeInto"in j||(j.encodeInto=function(r,e){const t=j.encode(r);return e.set(t),{read:r.length,written:t.length}});let a=0,o;function ne(r,e){return o=r.exports,F=null,B=null,T=null,o.__wbindgen_start(),o}function re(r){if(o!==void 0)return o;r!==void 0&&(Object.getPrototypeOf(r)===Object.prototype?{module:r}=r:console.warn("using deprecated parameters for `initSync()`; pass a single object instead"));const e=P();r instanceof WebAssembly.Module||(r=new WebAssembly.Module(r));const t=new WebAssembly.Instance(r,e);return ne(t)}function V(){let r=0;const e=new Map;return{add(t){const n=r++;return e.set(n,t),n},get(t){const n=e.get(t);if(!n)throw new Error("Attempted to use an object that has been freed");return n},remove(t){return e.delete(t)}}}const D=Symbol("transfer");function M(r,e){return{type:D,value:r,transfer:e?Array.isArray(e)?e:[e]:[r]}}function W(r){return!!(r&&typeof r=="object"&&Reflect.get(r,"type")===D)}function q(r="default"){return{createTx(e){const t=new Map,n=e??self;return n.addEventListener("message",_=>{const{data:c}=_;if(c.channelName!==r)return;const{id:s,result:i,error:u}=c,g=t.get(s);g&&(u?g.reject(u):g.resolve(i),t.delete(s))}),new Proxy({},{get(_,c){return(...s)=>{const i=_e(),u=[],g=[];return s.forEach(v=>{W(v)?(u.push(v.value),g.push(...v.transfer)):u.push(v)}),n.postMessage({method:c,args:u,id:i,channelName:r},{transfer:g}),new Promise((v,ae)=>{t.set(i,{resolve:v,reject:ae})})}}})},rx(e,t){const n=t??self;n.addEventListener("message",async _=>{const{data:c}=_;if(c.channelName!==r)return;const{method:s,args:i,id:u}=c;try{const g=await e[s](...i);W(g)?n.postMessage({result:g.value,id:u,channelName:r},{transfer:g.transfer}):n.postMessage({result:g,id:u,channelName:r})}catch(g){n.postMessage({error:g,id:u,channelName:r})}})}}}function _e(){return new Array(4).fill(0).map(()=>Math.floor(Math.random()*Number.MAX_SAFE_INTEGER).toString(16)).join("-")}const{rx:oe}=q(),{createTx:ce}=q("worker");function se(r){if(!(r!=null&&r.manifests))return r;const e=r.manifests,t=Object.assign(Object.create(null),e),n=Object.getPrototypeOf(e);return n!==null&&n!==Object.prototype&&(t.__proto__=n),r.manifests=t,r}const h=V(),f=V(),k=ce();function C(r){return r.map(e=>({sigType:e.sigType,reserveSize:e.reserveSize,referencedAssertions:e.referencedAssertions,roles:e.roles,sign:async t=>{const n=t.referencedAssertions.map(c=>c.hash.buffer);return await k.cawgSign(e.requestId,M(t,n))}}))}oe(ie({async initWorker(r){re({module:r})},async reader_fromBlob(r,e,t){const n=await I.fromBlob(r,e,t);return h.add(n)},async reader_fromBlobFragment(r,e,t,n){const _=await I.fromBlobFragment(r,e,t,n);return h.add(_)},reader_activeLabel(r){return h.get(r).activeLabel()??null},reader_manifestStore(r){const e=h.get(r);return se(e.manifestStore())},reader_activeManifest(r){return h.get(r).activeManifest()},reader_json(r){return h.get(r).json()},reader_crJson(r){return h.get(r).crJson()},reader_resourceToBytes(r,e){const n=h.get(r).resourceToBytes(e);return M(n,n.buffer)},reader_free(r){h.get(r).free(),h.remove(r)},builder_new(r){const e=y.new(r);return f.add(e)},builder_fromJson(r,e){const t=y.fromJson(r,e);return f.add(t)},builder_fromArchive(r,e){const t=y.fromArchive(r,e);return f.add(t)},builder_setIntent(r,e){f.get(r).setIntent(e)},builder_addAction(r,e){f.get(r).addAction(e)},builder_addAssertion(r,e,t){f.get(r).addAssertion(e,t)},builder_updateAssertionsAt(r,e,t){f.get(r).updateAssertionsAt(e,t)},builder_addRedaction(r,e,t){f.get(r).addRedaction(e,t)},builder_filterActionsAt(r,e){f.get(r).filterActionsAt(Uint32Array.from(e))},builder_updateActionsAt(r,e){f.get(r).updateActionsAt(e)},builder_filterIngredientsAt(r,e){f.get(r).filterIngredientsAt(Uint32Array.from(e))},builder_filterActionsAndIngredientsAt(r,e,t){f.get(r).filterActionsAndIngredientsAt(Uint32Array.from(e),Uint32Array.from(t))},builder_setRemoteUrl(r,e){f.get(r).setRemoteUrl(e)},builder_setNoEmbed(r,e){f.get(r).setNoEmbed(e)},builder_setThumbnailFromBlob(r,e,t){f.get(r).setThumbnailFromBlob(e,t)},builder_addIngredient(r,e){f.get(r).addIngredient(e)},async builder_addIngredientFromBlob(r,e,t,n){await f.get(r).addIngredientFromBlob(e,t,n)},builder_addResourceFromBlob(r,e,t){f.get(r).addResourceFromBlob(e,t)},builder_getDefinition(r){return f.get(r).getDefinition()},builder_toArchive(r){const t=f.get(r).toArchive();return M(t,t.buffer)},async builder_sign(r,e,t,n,_,c){const i=await f.get(r).sign({reserveSize:t.reserveSize,alg:t.alg,sign:async u=>await k.sign(e,M(u,u.buffer),t.reserveSize)},C(n),_,c);return M(i,i.buffer)},async builder_signAndGetManifestBytes(r,e,t,n,_,c){const s=f.get(r),{manifest:i,asset:u}=await s.signAndGetManifestBytes({reserveSize:t.reserveSize,alg:t.alg,sign:async g=>await k.sign(e,M(g,g.buffer),t.reserveSize)},C(n),_,c);return M({manifest:i,asset:u},[i.buffer,u.buffer])},builder_free(r){f.get(r).free(),f.remove(r)}}));function ie(r){const e={};for(const[t,n]of Object.entries(r))e[t]=async(..._)=>{try{return await n(..._)}catch(c){throw typeof c=="string"?new Error(c):c}};return e}})();\n', W = typeof self < "u" && self.Blob && new Blob([Z], { type: "text/javascript;charset=utf-8" });
+function ae(n) {
+  let e;
+  try {
+    if (e = W && (self.URL || self.webkitURL).createObjectURL(W), !e) throw "";
+    const t = new Worker(e, {
+      name: n == null ? void 0 : n.name
+    });
+    return t.addEventListener("error", () => {
+      (self.URL || self.webkitURL).revokeObjectURL(e);
+    }), t;
+  } catch {
+    return new Worker(
+      "data:text/javascript;charset=utf-8," + encodeURIComponent(Z),
+      {
+        name: n == null ? void 0 : n.name
+      }
+    );
+  } finally {
+    e && (self.URL || self.webkitURL).revokeObjectURL(e);
+  }
+}
+function ce(n) {
+  if (n.protocol !== "https:")
+    throw new Error(
+      `Worker source URL must use https, but got ${n.protocol}`
+    );
+  return n.toString();
+}
+async function ue(n) {
+  const { wasm: e, workerSrc: t } = n;
+  let r = 0;
+  const o = t ? new Worker(ce(t), { type: "module" }) : new ae(), s = oe(o), _ = /* @__PURE__ */ new Map(), a = /* @__PURE__ */ new Map();
+  _e(
+    {
+      sign: async (l, d, b) => {
+        const g = _.get(l);
+        if (_.delete(l), !g)
+          throw new Error("No signer registered for request");
+        const p = await g(d, b);
+        return P(p, p.buffer);
+      },
+      // Reverse-RPC handler for a CAWG credential holder's `sign`, mirroring
+      // `sign` above: the callback was registered on the main thread by
+      // `Builder.sign`/`signAndGetManifestBytes` (see
+      // `registerCredentialHolderReceiver`) and is looked up and run here,
+      // never inside the worker.
+      cawgSign: async (l, d) => {
+        const b = a.get(l);
+        if (a.delete(l), !b)
+          throw new Error("No credential holder registered for request");
+        const g = await b(d);
+        return P(g, g.buffer);
+      }
+    },
+    o
+  );
+  function f(l) {
+    const d = r++;
+    return _.set(d, l), d;
+  }
+  function w(l) {
+    const d = r++;
+    return a.set(d, l), d;
+  }
+  return await s.initWorker(e), {
+    tx: s,
+    registerSignReceiver: f,
+    registerCredentialHolderReceiver: w,
+    terminate: () => o.terminate()
+  };
+}
+typeof FinalizationRegistry > "u" || new FinalizationRegistry((n) => j.__wbg_wasmbuilder_free(n, 1));
+typeof FinalizationRegistry > "u" || new FinalizationRegistry((n) => j.__wbg_wasmreader_free(n, 1));
+typeof FinalizationRegistry > "u" || new FinalizationRegistry((n) => j.__wbg_wasmsigner_free(n, 1));
+typeof FinalizationRegistry > "u" || new FinalizationRegistry((n) => j.__wbindgen_destroy_closure(n.a, n.b));
+let fe = new TextDecoder("utf-8", { ignoreBOM: !0, fatal: !0 });
+fe.decode();
+const U = new TextEncoder();
+"encodeInto" in U || (U.encodeInto = function(n, e) {
+  const t = U.encode(n);
+  return e.set(t), {
+    read: n.length,
+    written: t.length
+  };
+});
+let j;
+const de = "sha512-VUKUpwxCu08SShdzVBFmt9OjEBJBb8t0B0cJtO6liA3muW4/Y25yKpKTuu2MaTFNlsXhqkDeDg41/wn//UM2bw==", T = (n) => {
+  if (typeof n == "object" && n !== null) {
+    if (typeof Object.getPrototypeOf == "function") {
+      const e = Object.getPrototypeOf(n);
+      return e === Object.prototype || e === null;
+    }
+    return Object.prototype.toString.call(n) === "[object Object]";
+  }
+  return !1;
+}, le = /* @__PURE__ */ new Set([
+  "__proto__",
+  "constructor",
+  "prototype",
+  "toString",
+  "valueOf",
+  "hasOwnProperty",
+  "isPrototypeOf",
+  "propertyIsEnumerable",
+  "toLocaleString"
+]), m = (...n) => n.reduce((e, t) => {
+  if (t === void 0)
+    return e;
+  if (Array.isArray(t))
+    throw new TypeError("Arguments provided to ts-deepmerge must be objects, not arrays.");
+  return Object.keys(t).forEach((r) => {
+    le.has(r) || (Array.isArray(e[r]) && Array.isArray(t[r]) ? e[r] = m.options.mergeArrays ? m.options.uniqueArrayItems ? Array.from(new Set(e[r].concat(t[r]))) : [...e[r], ...t[r]] : t[r] : T(e[r]) && T(t[r]) ? e[r] = m(e[r], t[r]) : !T(e[r]) && T(t[r]) ? e[r] = m(t[r], void 0) : e[r] = t[r] === void 0 ? m.options.allowUndefinedOverrides ? t[r] : e[r] : t[r]);
+  }), e;
+}, {}), D = {
+  allowUndefinedOverrides: !0,
+  mergeArrays: !0,
+  uniqueArrayItems: !0
+};
+m.options = D;
+m.withOptions = (n, ...e) => {
+  m.options = Object.assign(Object.assign({}, D), n);
+  const t = m(...e);
+  return m.options = D, t;
+};
+const be = 1 * 1024 * 1024, ge = 2, we = 200, me = 2e3, he = 3e4;
+function ye(n) {
+  return n === 429 || n >= 500;
+}
+function Ae(n) {
+  return n instanceof Error && n.name === "AbortError";
+}
+function pe(n, e, t) {
+  const r = Math.min(e * 2 ** n, t), o = Math.floor(Math.random() * 200);
+  return Math.min(r + o, t);
+}
+function Re(n) {
+  if (!n)
+    return null;
+  const e = Number(n);
+  if (!Number.isNaN(e))
+    return e * 1e3;
+  const t = Date.parse(n);
+  return Number.isNaN(t) ? null : t - Date.now();
+}
+function ve(n) {
+  try {
+    new URL(n);
+  } catch {
+    throw new Error(`Invalid URL: ${n}`);
+  }
+}
+async function Q(n, e, t) {
+  ve(n);
+  const r = (t == null ? void 0 : t.maxRetries) ?? ge, o = (t == null ? void 0 : t.initialRetryDelayMs) ?? we, s = (t == null ? void 0 : t.maxRetryDelayMs) ?? me, _ = (t == null ? void 0 : t.maxRetryAfterMs) ?? he, a = (t == null ? void 0 : t.isRetryableStatus) ?? ye, f = (t == null ? void 0 : t.isRetryableError) ?? (() => !0), w = (t == null ? void 0 : t.fetch) ?? fetch, l = (d) => pe(d, o, s);
+  for (let d = 0; ; d++) {
+    let b;
+    try {
+      b = await w(n, e);
+    } catch (g) {
+      if (!Ae(g) && f(g) && d < r) {
+        await new Promise((R) => setTimeout(R, l(d)));
+        continue;
+      }
+      const p = g instanceof Error ? g.message : String(g);
+      throw new Error(`Network error fetching ${n}: ${p}`, {
+        cause: g
+      });
+    }
+    if (!b.ok) {
+      if (a(b.status)) {
+        const p = Re(b.headers.get("retry-after"));
+        if (p !== null) {
+          if (p > _)
+            throw new Error(`Failed to fetch ${n}: server requested a Retry-After delay of ${Math.ceil(p / 1e3)}s, which exceeds the maximum allowed delay of ${_ / 1e3}s`);
+          if (d < r) {
+            await new Promise((R) => setTimeout(R, Math.max(p, 0)));
+            continue;
+          }
+          throw new Error(`Failed to fetch ${n}: ${b.status} ${b.statusText}`);
+        }
+        if (d < r) {
+          await new Promise((R) => setTimeout(R, l(d)));
+          continue;
+        }
+      }
+      throw new Error(`Failed to fetch ${n}: ${b.status} ${b.statusText}`);
+    }
+    return b;
+  }
+}
+async function k(n, e) {
+  const t = (e == null ? void 0 : e.maxResponseBytes) ?? be, r = await Q(n, void 0, e), o = r.headers.get("content-length");
+  if (o !== null && Number(o) > t)
+    throw new Error(`Response from ${n} is too large. Max size is ${t} bytes.`);
+  const s = await r.text();
+  if (s.length > t)
+    throw new Error(`Response from ${n} is too large. Max size is ${t} bytes.`);
+  return s;
+}
+function J(n) {
+  return Object.entries(n).reduce((t, [r, o]) => (t[Se(r)] = ee(o), t), {});
+}
+function ee(n) {
+  return Array.isArray(n) ? n.map(ee) : typeof n == "object" && n !== null ? J(n) : n;
+}
+function Se(n) {
+  return n.replace(/[A-Z]/g, (e) => `_${e.toLowerCase()}`);
+}
+const xe = Object.freeze({
+  builder: Object.freeze({
+    generateC2paArchive: !0
+  })
+});
+function Ee(n) {
+  return m(xe, n ?? {});
+}
+async function Ie(n, e) {
+  const t = Ee(n), r = [];
+  return t.trust && r.push(V(t.trust, e)), t.cawgTrust && r.push(V(t.cawgTrust, e)), await Promise.all(r), JSON.stringify(J(te(t)));
+}
+function te(n) {
+  const { trust: e, cawgTrust: t, ...r } = n, o = [
+    ...q(e, "manifest"),
+    ...q(t, "cawg")
+  ], s = r;
+  return (o.length > 0 || e != null && e.trustConfig) && (s.trust = {
+    ...o.length > 0 ? { anchors: o } : {},
+    ...e != null && e.trustConfig ? { trustConfig: e.trustConfig } : {}
+  }), s;
+}
+function q(n, e) {
+  if (!n || n.verifyTrustList === !1)
+    return [];
+  const t = n.trustConfig, r = n.allowedList, o = [];
+  return n.userAnchors && o.push({
+    trustAnchors: n.userAnchors,
+    trustUri: `${e}_user_anchors`,
+    trustKind: e,
+    ...t ? { trustConfig: t } : {},
+    ...r ? { allowedList: r } : {}
+  }), n.trustAnchors && o.push({
+    trustAnchors: n.trustAnchors,
+    trustUri: `${e}_system_anchors`,
+    trustKind: e,
+    ...t ? { trustConfig: t } : {},
+    ...r ? { allowedList: r } : {}
+  }), o;
+}
+function Je(n) {
+  return { trust: { ...n } };
+}
+function $e(n) {
+  return { cawgTrust: { ...n } };
+}
+function Ce(n) {
+  return { verify: { ...n } };
+}
+function x(...n) {
+  return m(...n);
+}
+function Pe(n) {
+  return JSON.stringify(J(te(n)));
+}
+async function We(n, e) {
+  return await (await Q(n, void 0, e)).text();
+}
+const Te = [
+  "userAnchors",
+  "trustAnchors",
+  "trustConfig",
+  "allowedList"
+];
+async function V(n, e) {
+  const t = (s) => ["userAnchors", "trustAnchors"].includes(s), r = (s) => s.includes("-----BEGIN CERTIFICATE-----"), o = (s) => s.startsWith("http");
+  try {
+    const s = Object.entries(n).filter(([_]) => Te.includes(_)).map(async ([_, a]) => {
+      if (a && typeof a == "object" && Array.isArray(a)) {
+        const f = a.map(async (d) => {
+          if (typeof d != "string")
+            throw new Error("Expected a string value for array item");
+          const b = await k(d, e);
+          if (t(_) && !r(b))
+            throw new Error(`Error parsing PEM file at: ${d}`);
+          return b;
+        }), l = (await Promise.all(f)).join("");
+        n[_] = l;
+      } else if (a && typeof a == "string" && o(a)) {
+        const f = await k(a, e);
+        if (t(_) && !r(f))
+          throw new Error(`Error parsing PEM file at: ${a}`);
+        n[_] = f;
+      } else
+        return a;
+    });
+    await Promise.all(s);
+  } catch (s) {
+    const _ = s instanceof Error ? s.message : String(s);
+    throw new Error(`Failed to resolve trust settings. ${_}`, {
+      cause: s
+    });
+  }
+}
+class A {
+  constructor(e) {
+    O(this, "_settings");
+    O(this, "_jsonPromise");
+    this._settings = e;
+  }
+  /**
+   * The settings currently attached to this `Context`, if any.
+   *
+   * To derive a new `Context` with different settings, construct one with `new Context(settings)`.
+   * To combine this `Context`'s settings with more settings, merge them with {@link mergeSettings}
+   * first and pass the single, merged result to the constructor.
+   */
+  get settings() {
+    return this._settings;
+  }
+  /**
+   * Resolves this `Context`'s settings (fetching any embedded trust-anchor URLs) and serializes
+   * the result for consumption by the WASM/native boundary. A successful result is memoized, so
+   * resolution of this Context's settings only happens once. If different fetch-with-retry
+   * options need to be provided, callers should create a separate `Context` and then call
+   * `toJson()` with the desired options.
+   *
+   * A failed resolution is not memoized: the next call to `toJson()` tries again from scratch,
+   * so a transient failure (e.g. a network error while fetching a trust-anchor URL) doesn't
+   * permanently break this `Context`.
+   *
+   * @param options Optional configurations for fetch-with-retry, used when resolving trust-anchor
+   * URLs. Only consulted on the first call, or the first call after a previous failure.
+   * @returns A JSON-serialized string of the resolved settings.
+   */
+  toJson(e) {
+    return this._jsonPromise ?? (this._jsonPromise = Ie(this.settings, e).catch((t) => {
+      throw this._jsonPromise = void 0, t;
+    })), this._jsonPromise;
+  }
+}
+const Fe = 10 ** 9;
+function ne(n) {
+  return Number.isFinite(n) && n > 0 ? n : Fe;
+}
+class Me extends Error {
+  /**
+   * @param sizeInBytes Size of the asset, in bytes.
+   * @param maxSizeInBytes Maximum allowed size, in bytes. `0` (or any other
+   * non-finite/negative value) resolves to {@link DEFAULT_MAX_SIZE_IN_BYTES}.
+   */
+  constructor(e, t) {
+    const r = ne(t);
+    super(`The provided asset was too large. Size: ${e} bytes. Maximum: ${r}.`), this.name = "AssetTooLargeError";
+  }
+}
+function N(n, e) {
+  if (!Number.isFinite(n) || n < 0)
+    throw new RangeError(`sizeInBytes must be a finite, non-negative number. Received: ${n}.`);
+  if (!Number.isFinite(e) || e < 0)
+    throw new RangeError(`maxSizeInBytes must be a finite, non-negative number. Received: ${e}.`);
+  const t = ne(e);
+  if (n > t)
+    throw new Me(n, t);
+}
+const L = 10 ** 9, z = new FinalizationRegistry(
+  async ({ worker: n, id: e }) => {
+    await n.tx.reader_free(e);
+  }
+);
+var h, y;
+const B = class B {
+  constructor(e, t) {
+    v(this, h);
+    v(this, y);
+    S(this, h, e), S(this, y, t);
+  }
+  /**
+   * Create a {@link Reader} from an asset's format and a blob of its bytes.
+   *
+   * @param c2pa The `C2pa` instance (from {@link createC2pa}) to create this reader on.
+   * @param format Asset format (MIME type or extension), typically `blob.type`. If omitted
+   * or empty, the native library will attempt to detect the format from the asset's bytes instead.
+   * Always provide the format if known, and only omit this when the caller has no way to determine
+   * the asset's format otherwise.
+   * @param blob Blob of asset bytes.
+   * @param context Optional `Context` configuring this reader's behavior.
+   * @returns A {@link Reader} object or null if no C2PA metadata was found.
+   * @throws If the asset is too large.
+   */
+  static async fromBlob(e, t, r, o = new A()) {
+    N(r.size, L);
+    try {
+      const s = await o.toJson(), { worker: _ } = e, a = await _.tx.reader_fromBlob(t ?? "", r, s), f = new B(_, a);
+      return z.register(f, { worker: _, id: a }, f), f;
+    } catch (s) {
+      return G(s);
+    }
+  }
+  /**
+   * Create a {@link Reader} from an initial fragment and a subsequent fragment.
+   *
+   * @param c2pa The `C2pa` instance (from {@link createC2pa}) to create this reader on.
+   * @param format Asset format (MIME type or extension). Unlike {@link fromBlob}, fragmented
+   * assets cannot be auto-detected from their bytes, so a format must be supplied.
+   * @param init Blob of initial fragment bytes.
+   * @param fragment Blob of fragment bytes.
+   * @param context Optional `Context` configuring this reader's behavior.
+   * @returns A {@link Reader} object or null if no C2PA metadata was found.
+   * @throws If the asset is too large.
+   */
+  static async fromBlobFragment(e, t, r, o, s = new A()) {
+    N(r.size, L), N(o.size, L);
+    try {
+      const _ = await s.toJson(), { worker: a } = e, f = await a.tx.reader_fromBlobFragment(
+        t,
+        r,
+        o,
+        _
+      ), w = new B(a, f);
+      return z.register(w, { worker: a, id: f }, w), w;
+    } catch (_) {
+      return G(_);
+    }
+  }
+  /**
+   * @returns The label of the active manifest.
+   */
+  async activeLabel() {
+    return await i(this, h).tx.reader_activeLabel(i(this, y));
+  }
+  /**
+   * @returns The asset's full {@link ManifestStore} containing all its manifests, validation statuses, and the URI of the active manifest.
+   */
+  async manifestStore() {
+    return await i(this, h).tx.reader_manifestStore(i(this, y));
+  }
+  /**
+   * @returns The asset's active {@link Manifest}.
+   */
+  async activeManifest() {
+    return await i(this, h).tx.reader_activeManifest(i(this, y));
+  }
+  /**
+   * @returns The asset's full {@link ManifestStore}.
+   *
+   * @deprecated Use {@link manifestStore} instead.
+   */
+  async json() {
+    const e = await i(this, h).tx.reader_json(i(this, y));
+    return JSON.parse(e);
+  }
+  /**
+   * @returns The asset's manifest store as crJSON.
+   */
+  async crJson() {
+    const e = await i(this, h).tx.reader_crJson(i(this, y));
+    return JSON.parse(e);
+  }
+  /**
+   * Resolves a URI reference to a binary object (e.g. a thumbnail) in the resource store.
+   *
+   * @param uri URI of the binary object to resolve.
+   * @returns A Uint8Array of the resource's bytes.
+   *
+   * @example Retrieving a thumbnail from the resource store:
+   * ```
+   * const reader = await Reader.fromBlob(c2pa, blob.type, blob);
+   * const activeManifest = await reader.activeManifest();
+   * const thumbnailBuffer = await reader.resourceToBytes(activeManifest.thumbnail!.identifier);
+   * ```
+   */
+  async resourceToBytes(e) {
+    return await i(this, h).tx.reader_resourceToBytes(i(this, y), e);
+  }
+  /**
+   * Dispose of this Reader, freeing the memory it occupied and preventing further use.
+   * Call this whenever the Reader is no longer needed.
+   */
+  async free() {
+    z.unregister(this), await i(this, h).tx.reader_free(i(this, y));
+  }
+};
+h = new WeakMap(), y = new WeakMap();
+let M = B;
+function Be(n, e = {}) {
+  return {
+    fromBlob: (t, r, o = {}) => M.fromBlob(
+      n,
+      t,
+      r,
+      new A(x(e, o))
+    ),
+    fromBlobFragment: (t, r, o, s = {}) => M.fromBlobFragment(
+      n,
+      t,
+      r,
+      o,
+      new A(x(e, s))
+    )
+  };
+}
+function G(n) {
+  if (n instanceof Error && n.message === "C2pa(JumbfNotFound)")
+    return null;
+  throw n;
+}
+async function Y(n) {
+  const { alg: e } = n;
+  return {
+    reserveSize: await n.reserveSize(),
+    alg: e
+  };
+}
+function je(n, e) {
+  const { credentialHolder: t, referencedAssertions: r, roles: o } = n;
+  return {
+    requestId: e,
+    sigType: t.sigType,
+    reserveSize: t.reserveSize,
+    referencedAssertions: r ?? [],
+    roles: o ?? []
+  };
+}
+function H(n) {
+  return re(n).flat();
+}
+function re(n) {
+  return (n.assertions ?? []).filter((e) => e.label.startsWith("c2pa.actions")).map((e) => {
+    const t = e.data;
+    return (t == null ? void 0 : t.actions) ?? [];
+  });
+}
+function K(n, e) {
+  const t = (e == null ? void 0 : e.identityAssertions) ?? [];
+  if (t.length > 1)
+    throw new Error(
+      "Only one identity assertion is currently supported per signing operation."
+    );
+  return t.map((r) => {
+    const o = n.registerCredentialHolderReceiver(
+      r.credentialHolder.sign
+    );
+    return je(r, o);
+  });
+}
+const F = new FinalizationRegistry(
+  ({ worker: n, id: e }) => {
+    n.tx.builder_free(e);
+  }
+);
+var c, u;
+const I = class I {
+  constructor(e, t) {
+    v(this, c);
+    v(this, u);
+    S(this, c, e), S(this, u, t);
+  }
+  /**
+   * Create a {@link Builder} with a minimal manifest definition as its initial state.
+   *
+   * @param c2pa The `C2pa` instance (from {@link createC2pa}) to create this builder on.
+   * @param context Optional `Context` configuring this builder's behavior.
+   * @returns A {@link Builder} object.
+   */
+  static async new(e, t = new A()) {
+    const r = await t.toJson(), { worker: o } = e, s = await o.tx.builder_new(r), _ = new I(o, s);
+    return F.register(_, { worker: o, id: s }, _), _;
+  }
+  /**
+   * Create a {@link Builder} from a {@link ManifestDefinition}.
+   *
+   * @param c2pa The `C2pa` instance (from {@link createC2pa}) to create this builder on.
+   * @param definition The {@link ManifestDefinition} to be used as the builder's initial state.
+   * @param context Optional `Context` configuring this builder's behavior.
+   * @returns A {@link Builder} object.
+   */
+  static async fromDefinition(e, t, r = new A()) {
+    const o = JSON.stringify(t), s = await r.toJson(), { worker: _ } = e, a = await _.tx.builder_fromJson(o, s), f = new I(_, a);
+    return F.register(f, { worker: _, id: a }, f), f;
+  }
+  /**
+   * Create a {@link Builder} from a builder archive (created from {@link Builder.toArchive}).
+   *
+   * @param c2pa The `C2pa` instance (from {@link createC2pa}) to create this builder on.
+   * @param archive Builder archive as a blob.
+   * @param context Optional `Context` configuring this builder's behavior.
+   * @returns A {@link Builder} object.
+   */
+  static async fromArchive(e, t, r = new A()) {
+    const o = await r.toJson(), { worker: s } = e, _ = await s.tx.builder_fromArchive(t, o), a = new I(s, _);
+    return F.register(a, { worker: s, id: _ }, a), a;
+  }
+  /**
+   * Sets the builder "intent."
+   *
+   * @todo Additional documentation coming soon.
+   *
+   * @param intent
+   */
+  async setIntent(e) {
+    await i(this, c).tx.builder_setIntent(i(this, u), e);
+  }
+  /**
+   * Add an action to the manifest's actions assertion.
+   *
+   * @param action Object representing the action to be added.
+   */
+  async addAction(e) {
+    await i(this, c).tx.builder_addAction(i(this, u), e);
+  }
+  /**
+   * Add an assertion to the manifest under the given label.
+   *
+   * @param label The assertion label (reverse-domain format).
+   * @param data The assertion data (any JSON-serializable value).
+   */
+  async addAssertion(e, t) {
+    await i(this, c).tx.builder_addAssertion(i(this, u), e, t);
+  }
+  /**
+   * Replaces the data of every assertion with an exact matching label.
+   * `transform` runs once per matching assertion in manifest order. Other assertion
+   * fields and positions are preserved. A missing label is a no-op.
+   * Returning null or undefined leaves that assertion unchanged.
+   * The replacement data must be JSON-serializable and may fail validation at signing time.
+   *
+   * @param label The exact assertion label to update.
+   * @param transform Receives the current data and returns its replacement.
+   */
+  async updateAssertion(e, t) {
+    const o = ((await this.getDefinition()).assertions ?? []).filter((s) => s.label === e).map((s) => t(s.data) ?? s.data);
+    await i(this, c).tx.builder_updateAssertionsAt(i(this, u), e, o);
+  }
+  /**
+   * Redact an assertion from an ingredient manifest.
+   *
+   * Adds the URI to the builder's redaction list and appends a `c2pa.redacted` action
+   * with the given reason, as required by the C2PA spec.
+   *
+   * @param uri JUMBF URI of the assertion to redact.
+   * @param reason The {@link C2paReason} for the redaction.
+   */
+  async addRedaction(e, t) {
+    await i(this, c).tx.builder_addRedaction(i(this, u), e, t);
+  }
+  /**
+   * Sets the remote URL for a remote manifest. The manifest is expected to be available at this location.
+   *
+   * @param url URL pointing to the location the remote manifest will be stored.
+   */
+  async setRemoteUrl(e) {
+    await i(this, c).tx.builder_setRemoteUrl(i(this, u), e);
+  }
+  /**
+   * Sets the state of the no_embed flag.
+   * To skip embedding a manifest (e.g. for the remote-only case), set this to `true`.
+   *
+   * @param noEmbed Value to set the no_embed flag.
+   */
+  async setNoEmbed(e) {
+    await i(this, c).tx.builder_setNoEmbed(i(this, u), e);
+  }
+  /**
+   * Set a thumbnail from a blob to be included in the manifest. The blob should represent the asset being signed.
+   *
+   * @param format Format of the thumbnail
+   * @param blob Blob of the thumbnail bytes
+   */
+  async setThumbnailFromBlob(e, t) {
+    await i(this, c).tx.builder_setThumbnailFromBlob(i(this, u), e, t);
+  }
+  /**
+   * Experimental.
+   * Retains only the actions for which `keep` returns true.
+   *
+   * The inception action, `c2pa.created` or `c2pa.opened`, is always kept regardless of `keep`,
+   * and is moved to index 0 if needed, so the manifest stays valid per the C2PA spec. Sets
+   * `allActionsIncluded = false` when anything is removed. This does not touch ingredients.
+   * Call {@link Builder.filterIngredients}, using `filterIngredients(() => false)` to drop all
+   * orphans, afterwards if you also want to drop ingredients now orphaned by the removed
+   * actions.
+   *
+   * Unlike the Node binding, Neon, which can invoke the JS predicate synchronously from Rust,
+   * the WASM builder lives in a Web Worker. A predicate closure can't be called across the
+   * worker boundary, so we evaluate it here on the main thread and send the resulting indices
+   * to the worker, where WASM applies the equivalent index-based filter. The action/ingredient
+   * ordering here must match what WASM iterates. See `filterActionsAt` and `filterIngredientsAt`.
+   *
+   * @param keep The action is retained when the predicate returns true.
+   */
+  async filterActions(e) {
+    const t = await i(this, c).tx.builder_getDefinition(
+      i(this, u)
+    ), o = H(t).reduce((s, _, a) => (e(_) && s.push(a), s), []);
+    await i(this, c).tx.builder_filterActionsAt(i(this, u), o);
+  }
+  /**
+   * Experimental.
+   * Retains ingredients, then rewrites positional ingredient references so linked actions
+   * stay valid.
+   *
+   * An ingredient is kept if it is referenced by a current action, is a `parentOf` ingredient,
+   * or `rescue` returns true for it. `rescue` therefore only ever rescues an otherwise-orphaned
+   * ingredient. It can never drop a referenced or lineage ingredient. Call
+   * {@link Builder.filterActions} first if you are also removing actions: the keep-set is
+   * computed from whatever actions currently remain.
+   *
+   * @param rescue Can rescue an otherwise-orphaned ingredient by returning true.
+   */
+  async filterIngredients(e) {
+    const o = ((await i(this, c).tx.builder_getDefinition(
+      i(this, u)
+    )).ingredients ?? []).reduce((s, _, a) => (e(_) && s.push(a), s), []);
+    await i(this, c).tx.builder_filterIngredientsAt(i(this, u), o);
+  }
+  /**
+   * Experimental.
+   * Retains actions and ingredients together in one step.
+   *
+   * `rescueIngredient` is evaluated for every ingredient first; any action referencing an
+   * ingredient it would rescue is force-kept regardless of `keepAction`.
+   *
+   * @param keepAction The action is retained when the predicate returns true.
+   * @param rescueIngredient Can rescue an otherwise-orphaned ingredient (and the action
+   * referencing it) by returning true.
+   */
+  async filterActionsAndIngredients(e, t) {
+    const r = await i(this, c).tx.builder_getDefinition(
+      i(this, u)
+    ), s = H(r).reduce((f, w, l) => (e(w) && f.push(l), f), []), a = (r.ingredients ?? []).reduce(
+      (f, w, l) => (t(w) && f.push(l), f),
+      []
+    );
+    await i(this, c).tx.builder_filterActionsAndIngredientsAt(
+      i(this, u),
+      s,
+      a
+    );
+  }
+  /**
+   * Replaces the actions in the `c2pa.actions`/`c2pa.actions.v2` assertions.
+   *
+   * A manifest can carry more than one actions assertion (the created-list and
+   * gathered-list entries are distinct assertions). `transform` is therefore
+   * invoked once per actions assertion, in positional order, with that
+   * assertion's own actions.
+   *
+   * A no-op if there is no actions assertion. Use `addAction` for those.
+   *
+   * The returned list is written back as is.
+   * `transform` can therefore produce an actions array that fails
+   * validation at signing time, for example by removing the inception action
+   * (`c2pa.created`/`c2pa.opened`) or moving it out of first position.
+   *
+   * @param transform Receives one assertion's actions and returns its full replacement list.
+   */
+  async updateActions(e) {
+    const t = await i(this, c).tx.builder_getDefinition(
+      i(this, u)
+    ), o = re(t).map((s) => e(s));
+    await i(this, c).tx.builder_updateActionsAt(i(this, u), o);
+  }
+  /**
+   * Add an ingredient to the builder from a definition only.
+   *
+   * @param ingredientDefinition {@link Ingredient} definition.
+   */
+  async addIngredient(e) {
+    const t = JSON.stringify(e);
+    await i(this, c).tx.builder_addIngredient(i(this, u), t);
+  }
+  /**
+   * Add an ingredient to the builder from a definition, format, and blob.
+   * Values specified in the ingredient definition will be merged with the ingredient, and these values take precendence.
+   *
+   * @param ingredientDefinition {@link Ingredient} definition.
+   * @param format Format of the ingredient.
+   * @param blob Blob of the ingredient's bytes.
+   */
+  async addIngredientFromBlob(e, t, r) {
+    const o = JSON.stringify(e);
+    await i(this, c).tx.builder_addIngredientFromBlob(i(this, u), o, t, r);
+  }
+  /**
+   * Add a resource to the builder's resource store with an ID and blob of the resource's bytes.
+   *
+   * @param resourceId ID associated with the resource being added.
+   * @param blob Blob of the resource's bytes.
+   */
+  async addResourceFromBlob(e, t) {
+    await i(this, c).tx.builder_addResourceFromBlob(i(this, u), e, t);
+  }
+  /**
+   * Gets the current manifest definition held by the builder.
+   *
+   * @returns The {@link ManifestDefinition} held by the builder.
+   */
+  async getDefinition() {
+    return await i(this, c).tx.builder_getDefinition(i(this, u));
+  }
+  /**
+   * Save the builder into .c2pa format.
+   * This "archive" can be added to as an ingredient with {@link addIngredientFromBlob}
+   *
+   * @returns A builder archive in application/c2pa format.
+   */
+  async toArchive() {
+    return await i(this, c).tx.builder_toArchive(i(this, u));
+  }
+  /**
+   * Sign an asset.
+   *
+   * @param signer The signer to use for the manifest's claim signature.
+   * @param format The format (MIME type) of the asset.
+   * @param blob The asset bytes.
+   * @param options Optional {@link SignOptions}. `identityAssertions` attaches
+   * one or more CAWG identity assertions (`cawg.identity`) to the manifest.
+   *
+   * @todo Docs coming soon
+   */
+  async sign(e, t, r, o) {
+    const s = await Y(e), _ = i(this, c).registerSignReceiver(e.sign), a = K(
+      i(this, c),
+      o
+    );
+    return await i(this, c).tx.builder_sign(
+      i(this, u),
+      _,
+      s,
+      a,
+      t,
+      r
+    );
+  }
+  /**
+   * Sign an asset and get both the signed asset bytes and the manifest bytes.
+   *
+   * @param signer The signer to use for the manifest's claim signature.
+   * @param format The format (MIME type) of the asset.
+   * @param blob The asset bytes.
+   * @param options Optional {@link SignOptions}. `identityAssertions` attaches
+   * one or more CAWG identity assertions (`cawg.identity`) to the manifest.
+   *
+   * @todo Docs coming soon
+   */
+  async signAndGetManifestBytes(e, t, r, o) {
+    const s = await Y(e), _ = i(this, c).registerSignReceiver(e.sign), a = K(
+      i(this, c),
+      o
+    );
+    return await i(this, c).tx.builder_signAndGetManifestBytes(
+      i(this, u),
+      _,
+      s,
+      a,
+      t,
+      r
+    );
+  }
+  /**
+   * Dispose of this Builder, freeing the memory it occupied and preventing further use. Call this whenever the Builder is no longer needed.
+   */
+  async free() {
+    F.unregister(this), await i(this, c).tx.builder_free(i(this, u));
+  }
+};
+c = new WeakMap(), u = new WeakMap();
+let E = I;
+function Oe(n, e = {}) {
+  return {
+    new: (t = {}) => E.new(n, new A(x(e, t))),
+    fromDefinition: (t, r = {}) => E.fromDefinition(
+      n,
+      t,
+      new A(x(e, r))
+    ),
+    fromArchive: (t, r = {}) => E.fromArchive(
+      n,
+      t,
+      new A(x(e, r))
+    )
+  };
+}
+async function ke(n) {
+  const { wasmSrc: e, workerSrc: t, settings: r } = n, o = typeof e == "string" ? await Ue(e) : e, s = await ue({ wasm: o, workerSrc: t }), _ = {
+    worker: s,
+    reader: void 0,
+    builder: void 0,
+    dispose: s.terminate
+  };
+  return _.reader = Be(_, r), _.builder = Oe(_, r), _;
+}
+async function Ue(n) {
+  const e = await fetch(n, { integrity: de });
+  return await WebAssembly.compileStreaming(e);
+}
+export {
+  Me as A,
+  E as B,
+  A as C,
+  we as D,
+  M as R,
+  be as a,
+  ge as b,
+  he as c,
+  me as d,
+  Fe as e,
+  xe as f,
+  ke as g,
+  $e as h,
+  Je as i,
+  Ce as j,
+  ye as k,
+  k as l,
+  Q as m,
+  We as n,
+  x as o,
+  V as p,
+  J as q,
+  Ie as r,
+  Pe as s,
+  N as v,
+  Ee as w
+};

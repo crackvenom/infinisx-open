@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Mark Checker</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Ccircle cx=%228%22 cy=%228%22 r=%227%22 fill=%22%2334d399%22/%3E%3C/svg%3E" />
+  <meta name="description" content="Check whether a picture carries AI marks: Content Credentials (C2PA), an invisible TrustMark watermark, and China's AIGC label. Runs entirely in your browser." />
+  <style>
+    :root {
+      --bg: #0b0d10; --panel: #15181d; --line: #2a2f37; --text: #e8eaed; --muted: #a3a9b3;
+      --ok: #34d399; --warn: #fbbf24; --bad: #f87171; --accent: #34d399;
+    }
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme="dark"]) {
+        --bg: #f6f7f9; --panel: #ffffff; --line: #d9dde3; --text: #15181d; --muted: #59606b;
+        --ok: #047857; --warn: #b45309; --bad: #b91c1c; --accent: #047857;
+      }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+    main { max-width: 760px; margin: 0 auto; padding: 32px 16px 64px; }
+    h1 { font-size: 1.6rem; margin: 0 0 4px; }
+    .lead { color: var(--muted); margin: 0 0 24px; }
+    #drop { border: 2px dashed var(--line); border-radius: 12px; padding: 36px 16px; text-align: center; background: var(--panel); cursor: pointer; }
+    #drop.hover { border-color: var(--accent); }
+    #drop button { font: inherit; padding: 8px 16px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--text); cursor: pointer; }
+    #status { margin: 16px 0 0; color: var(--muted); min-height: 1.5em; }
+    #result { display: none; margin-top: 24px; gap: 16px; }
+    #result.show { display: grid; grid-template-columns: 160px 1fr; }
+    @media (max-width: 560px) { #result.show { grid-template-columns: 1fr; } }
+    #preview { width: 100%; border-radius: 8px; border: 1px solid var(--line); }
+    #verdict { font-size: 1.15rem; font-weight: 600; margin: 0 0 12px; }
+    .row { border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; margin-bottom: 10px; background: var(--panel); }
+    .row h2 { font-size: 1rem; margin: 0 0 4px; display: flex; gap: 8px; align-items: baseline; }
+    .row p { margin: 0; color: var(--muted); font-size: .92rem; overflow-wrap: anywhere; }
+    .ok { color: var(--ok); } .warn { color: var(--warn); } .bad { color: var(--bad); } .none { color: var(--muted); }
+    dl { display: grid; grid-template-columns: max-content 1fr; gap: 2px 12px; margin: 8px 0 0; font-size: .9rem; }
+    dt { color: var(--muted); } dd { margin: 0; overflow-wrap: anywhere; }
+    footer { margin-top: 40px; color: var(--muted); font-size: .85rem; }
+    footer a { color: var(--accent); }
+  </style>
+  <script type="importmap">{ "imports": { "highgain": "./vendor/highgain/index.js" } }</script>
+  <script src="vendor/trustmark/deps/ort.webgpu.min.js"></script>
+  <script src="vendor/trustmark/deps/bch_ecc.min.js"></script>
+  <script src="vendor/trustmark/tm_datalayer.js"></script>
+  <script src="vendor/trustmark/tm_watermark.js"></script>
+</head>
+<body>
+  <main>
+    <h1>AI Mark Checker</h1>
+    <p class="lead">Drop a picture to see whether it carries AI marks — the ones InfinisX adds to every picture it makes, and the standard ones other AI tools use. Your picture stays on your computer: it is checked here, in your browser, and never uploaded.</p>
+
+    <div id="drop" tabindex="0" role="button" aria-label="Choose a picture to check">
+      <p>Drop a PNG or JPEG here</p>
+      <button type="button" id="pick">Choose a picture…</button>
+      <input type="file" id="file" accept="image/png,image/jpeg,image/webp" hidden />
+    </div>
+    <p id="status" aria-live="polite">Getting the checkers ready…</p>
+
+    <section id="result" aria-live="polite">
+      <img id="preview" alt="The picture being checked" />
+      <div>
+        <p id="verdict"></p>
+        <div class="row" id="c2pa"></div>
+        <div class="row" id="wm"></div>
+        <div class="row" id="aigc"></div>
+      </div>
+    </section>
+
+    <footer>
+      <p>What is checked: <strong>Content Credentials</strong> (the C2PA standard — a signed record inside the file), an invisible <strong>TrustMark</strong> watermark in the pixels (Adobe's open-source watermark, which survives JPEG saving, resizing and cropping), and China's <strong>AIGC</strong> label (GB 45438). No marks found does not prove a picture was made without AI: marks can be removed or never added.</p>
+      <p>Free to use, no account, nothing stored. The watermark reader downloads its model from Adobe (about 50 MB, once). Open source: Content Credentials by the <a href="https://contentauthenticity.org/">Content Authenticity Initiative</a> (c2pa-web, MIT); <a href="https://github.com/adobe/trustmark">TrustMark</a> (Adobe, MIT); ONNX Runtime (Microsoft, MIT). Licences in the <code>vendor</code> folder. Also try <a href="https://contentcredentials.org/verify">contentcredentials.org/verify</a>.</p>
+    </footer>
+  </main>
+  <script type="module" src="checker.js"></script>
+</body>
+</html>
